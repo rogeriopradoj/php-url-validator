@@ -21,5 +21,6 @@ script:
   - ${RUN}
 
 before_script:
+  - "`phpdbg --version&>/dev/null` && phpenv config-rm xdebug.ini"
   - "composer self-update"
   - "composer install --no-interaction --prefer-source"

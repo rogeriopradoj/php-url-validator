@@ -12,14 +12,14 @@ php:
   - hhvm
 
 env:
-    - RUN=${which phpunit}
-    - RUN=./vendor/bin/phpunit
-    - RUN=`phpdbg --version&>/dev/null` && phpdbg -qrr ${which phpunit}
-    - RUN=`phpdbg --version&>/dev/null` && phpdbg -qrr ./vendor/bin/phpunit
+    - RUN="${which phpunit}"
+    - RUN="./vendor/bin/phpunit"
+    - RUN="`phpdbg --version&>/dev/null` && phpdbg -qrr ${which phpunit}"
+    - RUN="`phpdbg --version&>/dev/null` && phpdbg -qrr ./vendor/bin/phpunit"
 
 script:
   - ${RUN}
 
 before_script:
-  - composer self-update
-  - composer install --no-interaction --prefer-source
+  - "composer self-update"
+  - "composer install --no-interaction --prefer-source"

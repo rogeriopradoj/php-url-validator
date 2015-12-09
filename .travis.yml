@@ -14,8 +14,8 @@ php:
 env:
     - RUN=${which phpunit}
     - RUN=./vendor/bin/phpunit
-    - RUN=phpdbg -qrr ${which phpunit}
-    - RUN=phpdbg -qrr ./vendor/bin/phpunit
+    - RUN=`phpdbg --version&>/dev/null` && phpdbg -qrr ${which phpunit}
+    - RUN=`phpdbg --version&>/dev/null` && phpdbg -qrr ./vendor/bin/phpunit
 
 script:
   - ${RUN}
